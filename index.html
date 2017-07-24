@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Rick O. Gilmore" />
+  <title>Fixing the past vs. building the future</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="libs/reveal.js-3.3.0.1/css/reveal.css"/>
+
+
+
+<link rel="stylesheet" href="libs/reveal.js-3.3.0.1/css/theme/serif.css" id="theme">
+
+
+  <!-- some tweaks to reveal css -->
+  <style type="text/css">
+    .reveal h1 { font-size: 2.0em; }
+    .reveal h2 { font-size: 1.5em;  }
+    .reveal h3 { font-size: 1.25em;	}
+    .reveal h4 { font-size: 1em;	}
+
+    .reveal .slides>section,
+    .reveal .slides>section>section {
+      padding: 0px 0px;
+    }
+
+
+
+    .reveal table {
+      border-width: 1px;
+      border-spacing: 2px;
+      border-style: dotted;
+      border-color: gray;
+      border-collapse: collapse;
+      font-size: 0.7em;
+    }
+
+    .reveal table th {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      font-weight: bold;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+    .reveal table td {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+
+  </style>
+
+    <style type="text/css">code{white-space: pre;}</style>
+
+
+<!-- Printing and PDF exports -->
+<script id="paper-css" type="application/dynamic-css">
+
+/* Default Print Stylesheet Template
+   by Rob Glazebrook of CSSnewbie.com
+   Last Updated: June 4, 2008
+
+   Feel free (nay, compelled) to edit, append, and
+   manipulate this file as you see fit. */
+
+
+@media print {
+
+	/* SECTION 1: Set default width, margin, float, and
+	   background. This prevents elements from extending
+	   beyond the edge of the printed page, and prevents
+	   unnecessary background images from printing */
+	html {
+		background: #fff;
+		width: auto;
+		height: auto;
+		overflow: visible;
+	}
+	body {
+		background: #fff;
+		font-size: 20pt;
+		width: auto;
+		height: auto;
+		border: 0;
+		margin: 0 5%;
+		padding: 0;
+		overflow: visible;
+		float: none !important;
+	}
+
+	/* SECTION 2: Remove any elements not needed in print.
+	   This would include navigation, ads, sidebars, etc. */
+	.nestedarrow,
+	.controls,
+	.fork-reveal,
+	.share-reveal,
+	.state-background,
+	.reveal .progress,
+	.reveal .backgrounds {
+		display: none !important;
+	}
+
+	/* SECTION 3: Set body font face, size, and color.
+	   Consider using a serif font for readability. */
+	body, p, td, li, div {
+		font-size: 20pt!important;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		color: #000;
+	}
+
+	/* SECTION 4: Set heading font face, sizes, and color.
+	   Differentiate your headings from your body text.
+	   Perhaps use a large sans-serif for distinction. */
+	h1,h2,h3,h4,h5,h6 {
+		color: #000!important;
+		height: auto;
+		line-height: normal;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		text-shadow: 0 0 0 #000 !important;
+		text-align: left;
+		letter-spacing: normal;
+	}
+	/* Need to reduce the size of the fonts for printing */
+	h1 { font-size: 28pt !important;  }
+	h2 { font-size: 24pt !important; }
+	h3 { font-size: 22pt !important; }
+	h4 { font-size: 22pt !important; font-variant: small-caps; }
+	h5 { font-size: 21pt !important; }
+	h6 { font-size: 20pt !important; font-style: italic; }
+
+	/* SECTION 5: Make hyperlinks more usable.
+	   Ensure links are underlined, and consider appending
+	   the URL to the end of the link for usability. */
+	a:link,
+	a:visited {
+		color: #000 !important;
+		font-weight: bold;
+		text-decoration: underline;
+	}
+	/*
+	.reveal a:link:after,
+	.reveal a:visited:after {
+		content: " (" attr(href) ") ";
+		color: #222 !important;
+		font-size: 90%;
+	}
+	*/
+
+
+	/* SECTION 6: more reveal.js specific additions by @skypanther */
+	ul, ol, div, p {
+		visibility: visible;
+		position: static;
+		width: auto;
+		height: auto;
+		display: block;
+		overflow: visible;
+		margin: 0;
+		text-align: left !important;
+	}
+	.reveal pre,
+	.reveal table {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.reveal pre code {
+		padding: 20px;
+		border: 1px solid #ddd;
+	}
+	.reveal blockquote {
+		margin: 20px 0;
+	}
+	.reveal .slides {
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 0 !important;
+		zoom: 1 !important;
+
+		overflow: visible !important;
+		display: block !important;
+
+		text-align: left !important;
+		-webkit-perspective: none;
+		   -moz-perspective: none;
+		    -ms-perspective: none;
+		        perspective: none;
+
+		-webkit-perspective-origin: 50% 50%;
+		   -moz-perspective-origin: 50% 50%;
+		    -ms-perspective-origin: 50% 50%;
+		        perspective-origin: 50% 50%;
+	}
+	.reveal .slides section {
+		visibility: visible !important;
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+		display: block !important;
+		overflow: visible !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 60px 20px !important;
+		z-index: auto !important;
+
+		opacity: 1 !important;
+
+		page-break-after: always !important;
+
+		-webkit-transform-style: flat !important;
+		   -moz-transform-style: flat !important;
+		    -ms-transform-style: flat !important;
+		        transform-style: flat !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+
+		-webkit-transition: none !important;
+		   -moz-transition: none !important;
+		    -ms-transition: none !important;
+		        transition: none !important;
+	}
+	.reveal .slides section.stack {
+		padding: 0 !important;
+	}
+	.reveal section:last-of-type {
+		page-break-after: avoid !important;
+	}
+	.reveal section .fragment {
+		opacity: 1 !important;
+		visibility: visible !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+	}
+	.reveal section img {
+		display: block;
+		margin: 15px 0px;
+		background: rgba(255,255,255,1);
+		border: 1px solid #666;
+		box-shadow: none;
+	}
+
+	.reveal section small {
+		font-size: 0.8em;
+	}
+
+}  
+</script>
+
+
+<script id="pdf-css" type="application/dynamic-css">
+    
+/**
+ * This stylesheet is used to print reveal.js
+ * presentations to PDF.
+ *
+ * https://github.com/hakimel/reveal.js#pdf-export
+ */
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+
+body {
+	margin: 0 auto !important;
+	border: 0;
+	padding: 0;
+	float: none !important;
+	overflow: visible;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+}
+
+/* Remove any elements not needed in print. */
+.nestedarrow,
+.reveal .controls,
+.reveal .progress,
+.reveal .playback,
+.reveal.overview,
+.fork-reveal,
+.share-reveal,
+.state-background {
+	display: none !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	text-shadow: 0 0 0 #000 !important;
+}
+
+.reveal pre code {
+	overflow: hidden !important;
+	font-family: Courier, 'Courier New', monospace !important;
+}
+
+ul, ol, div, p {
+	visibility: visible;
+	position: static;
+	width: auto;
+	height: auto;
+	display: block;
+	overflow: visible;
+	margin: auto;
+}
+.reveal {
+	width: auto !important;
+	height: auto !important;
+	overflow: hidden !important;
+}
+.reveal .slides {
+	position: static;
+	width: 100%;
+	height: auto;
+
+	left: auto;
+	top: auto;
+	margin: 0 !important;
+	padding: 0 !important;
+
+	overflow: visible;
+	display: block;
+
+	-webkit-perspective: none;
+	   -moz-perspective: none;
+	    -ms-perspective: none;
+	        perspective: none;
+
+	-webkit-perspective-origin: 50% 50%; /* there isn't a none/auto value but 50-50 is the default */
+	   -moz-perspective-origin: 50% 50%;
+	    -ms-perspective-origin: 50% 50%;
+	        perspective-origin: 50% 50%;
+}
+
+.reveal .slides section {
+	page-break-after: always !important;
+
+	visibility: visible !important;
+	position: relative !important;
+	display: block !important;
+	position: relative !important;
+
+	margin: 0 !important;
+	padding: 0 !important;
+	box-sizing: border-box !important;
+	min-height: 1px;
+
+	opacity: 1 !important;
+
+	-webkit-transform-style: flat !important;
+	   -moz-transform-style: flat !important;
+	    -ms-transform-style: flat !important;
+	        transform-style: flat !important;
+
+	-webkit-transform: none !important;
+	   -moz-transform: none !important;
+	    -ms-transform: none !important;
+	        transform: none !important;
+}
+
+.reveal section.stack {
+	margin: 0 !important;
+	padding: 0 !important;
+	page-break-after: avoid !important;
+	height: auto !important;
+	min-height: auto !important;
+}
+
+.reveal img {
+	box-shadow: none;
+}
+
+.reveal .roll {
+	overflow: visible;
+	line-height: 1em;
+}
+
+/* Slide backgrounds are placed inside of their slide when exporting to PDF */
+.reveal section .slide-background {
+	display: block !important;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: -1;
+}
+
+/* All elements should be above the slide-background */
+.reveal section>* {
+	position: relative;
+	z-index: 1;
+}
+
+/* Display slide speaker notes when 'showNotes' is enabled */
+.reveal .speaker-notes-pdf {
+	display: block;
+	width: 100%;
+	max-height: none;
+	left: auto;
+	top: auto;
+	z-index: 100;
+}
+
+/* Display slide numbers when 'slideNumber' is enabled */
+.reveal .slide-number-pdf {
+	display: block;
+	position: absolute;
+	font-size: 14px;
+}
+
+</script>
+
+
+<script>
+var style = document.createElement( 'style' );
+style.type = 'text/css';
+var style_script_id = window.location.search.match( /print-pdf/gi ) ? 'pdf-css' : 'paper-css';
+var style_script = document.getElementById(style_script_id).text;
+style.innerHTML = style_script;
+document.getElementsByTagName('head')[0].appendChild(style);
+</script>
+
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">Fixing the past vs. building the future</h1>
+    <h2 class="author">Rick O. Gilmore</h2>
+    <h3 class="date">2017-07-24 11:48:49</h3>
+</section>
+
+<section id="acknowledgments" class="slide level2">
+<h1>Acknowledgments</h1>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/8/87/NSF_Logo.PNG" height=250px> <img src="https://science.nichd.nih.gov/confluence/download/attachments/34472103/NICHD-vertical-2-color.png?version=1&modificationDate=1477410070000&api=v2" height=250px></p>
+<aside class="notes">
+<p>Thank you to the National Science Foundation and the National Institute of Child Health and Human Development for their support of my work.</p>
+</aside>
+</section>
+<section id="is-there-a-reproducibility-crisis" class="slide level2">
+<h1>Is there a reproducibility crisis?</h1>
+<!-- - Yes, a significant crisis. -->
+<!-- - Yes, a slight crisis. -->
+<!-- - No, there is no crisis. -->
+<!-- - Don't know. -->
+<!-- <div class="notes"> -->
+<!-- Could I see a show of hands from those who say there is a significant reproducibility crisis? A 'slight' crisis? No crisis? Don't know. -->
+<!-- </div> -->
+</section>
+<section class="slide level2">
+
+<div class="centered">
+<p><a href="http://www.nature.com/polopoly_fs/7.36716.1469695923!/image/reproducibility-graphic-online1.jpeg_gen/derivatives/landscape_630/reproducibility-graphic-online1.jpeg" height=450px> <img src="http://www.nature.com/polopoly_fs/7.36716.1469695923!/image/reproducibility-graphic-online1.jpeg_gen/derivatives/landscape_630/reproducibility-graphic-online1.jpeg" height=550px> </a></p>
+<p><a href="http://doi.org/10.1038/533452a">Baker 2016</a></p>
+</div>
+<aside class="notes">
+<p>Here are the results from a survey published last year in Nature.</p>
+</aside>
+</section>
+<section class="slide level2">
+
+<div class="centered">
+<p><a href="http://www.nature.com/polopoly_fs/7.36719.1464174488!/image/reproducibility-graphic-online4.jpg_gen/derivatives/landscape_630/reproducibility-graphic-online4.jpg"> <img src="http://www.nature.com/polopoly_fs/7.36719.1464174488!/image/reproducibility-graphic-online4.jpg_gen/derivatives/landscape_630/reproducibility-graphic-online4.jpg" height=600px> </a></p>
+<p><a href="http://doi.org/10.1038/533452a">Baker 2016</a></p>
+</div>
+<aside class="notes">
+<p>Here are the data from the Nature survey.</p>
+</aside>
+<!-- ## Solvable problems -->
+<!-- - Selective reporting -->
+<!-- - *Pressure to publish* -->
+<!-- - Low power -->
+<!-- - Replication in original labs -->
+<!-- - Mentoring/oversight -->
+<!-- - Methods, code, data unavailable -->
+<!-- - Poor design -->
+<!-- - Fraud -->
+<!-- - Insufficient peer review -->
+<!-- - Variability of reagents -->
+<!-- - *Bad luck* -->
+<!-- <div class="notes"> -->
+<!-- I suggest that **most** of these are problems we can solve. -->
+<!-- </div> -->
+</section>
+<section class="slide level2">
+
+<div class="centered">
+<p><a href=""> <img src="img/physics-envy.jpg" height=550px> </a></p>
+</div>
+<aside class="notes">
+<p>Personally, I’m very grateful for these data because it makes me realize I can and should give up any lingering envy of the physical sciences.</p>
+</aside>
+</section>
+<section id="behavioral-science-is-harder-than-physics" class="slide level2">
+<h1>Behavioral science is harder than physics</h1>
+<aside class="notes">
+<p>Well, you don’t because behavioral science is harder than physics.</p>
+</aside>
+</section>
+<section class="slide level2">
+
+<div class="centered">
+<p><img src="img/psych-harder-1.jpg" width=800px/></p>
+</div>
+<aside class="notes">
+<p>Physicists are rightly proud that they can predict precisely what will happen if we put a mass on an inclined plane in a gravitational field.</p>
+</aside>
+</section>
+<section class="slide level2">
+
+<div class="centered">
+<p><img src="img/psych-harder-2.jpg" width=800px/></p>
+</div>
+<aside class="notes">
+<p>But if we change the mass to a mouse, what happens? Our predictions go out the window. Why? Because there are too many variables… Psychology is orders of magnitude harder than physics.</p>
+</aside>
+</section>
+<section id="the-past" class="slide level2">
+<h1>The past…</h1>
+<div class="centered">
+<p><img src="http://www.cropthornehouse.co.uk/09-01-15_brick_rescue/08.jpg" height=500px></p>
+</div>
+<aside class="notes">
+<p>If we think about every finding or data point as a brick, then we don’t want unorganized piles</p>
+</aside>
+</section>
+<section id="the-future" class="slide level2">
+<h1>The future…</h1>
+<div class="centered">
+<p><img src="https://img.haikudeck.com/mg/wCGTyyYmpb_1417569004730.jpg" height=500px></p>
+</div>
+<aside class="notes">
+<p>We want orderly, strong, structures of knowledge. That means we need to have standardization and order for each of the bricks and mortar that binds them together.</p>
+</aside>
+</section>
+<section class="slide level2">
+
+<div class="centered">
+<p><img src="http://www.sowoll.com/images/5(3).jpg" height=475px></p>
+</div>
+<aside class="notes">
+<p>So, what are the barriers we must overcome?</p>
+</aside>
+</section>
+<section class="slide level2">
+
+<div class="centered">
+<p><img src="https://media.licdn.com/mpr/mpr/shrinknp_800_800/AAEAAQAAAAAAAAW9AAAAJDRhMTc5OGYyLWE4MzItNDNlOS1hMDJjLTllOGU2ZTNiNmMzNg.jpg" height=450px></p>
+</div>
+<aside class="notes">
+<p>As a result our work, results, and methods are siloed.</p>
+</aside>
+</section>
+<section class="slide level2">
+
+<div class="centered">
+<p><img src="http://cdn2.hubspot.net/hub/134568/file-1208368053-jpg/6-blind-men-hans.jpg" height=450px></p>
+</div>
+<aside class="notes">
+<p>And it often seems like we are the proverbial blind men examining the elephant.</p>
+</aside>
+</section>
+<section class="slide level2">
+
+<div class="centered">
+<p><img src="http://static.neatorama.com/images/2012-09/girl-hugging-elephant.jpg" height=500px></p>
+</div>
+</section>
+<section id="standardization" class="slide level2">
+<h1>Standardization</h1>
+<ul>
+<li>Data repositories
+<ul>
+<li><del>Lab, departmental, institutional web sites.</del></li>
+<li><del>Dropbox, Box, Google, etc.</del></li>
+<li><strong>Domain specific</strong>, like journals</li>
+</ul></li>
+<li>In partnership with journals
+<ul>
+<li>Consistent formatting</li>
+<li>Peer review</li>
+<li>Public-facing</li>
+</ul></li>
+</ul>
+</section>
+<section id="metadata-as-mortar" class="slide level2">
+<h1>Metadata as mortar</h1>
+<div class="centered">
+<p><img src="img/bricks-mortar.png" height=550px></p>
+</div>
+<aside class="notes">
+<p>And on a more mundane level, we could choose and adopt common metadata items and formats that would allow us to link findings across studies. But we haven’t yet.</p>
+</aside>
+</section>
+<section id="capturing-methods" class="slide level2">
+<h1>Capturing methods</h1>
+<div class="centered">
+<p><a href="http://doi.org/10.1038/s41562-017-0128"> <img src="img/gilmore-adolph-nat-hum-beh.jpg" height=450px> </a></p>
+<p><a href="http://doi.org/10.1038/s41562-017-0128">Gilmore &amp; Adolph 2017</a></p>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="centered">
+<p><img src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1398031081i/17816647._UY400_SS400_.jpg" height=500px></p>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="centered">
+<p><a href="http://jupyter.org"> <img src="img/jupyter.jpg" height=500px> </a></p>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="centered">
+<p><a href="http://osf.io"> <img src="img/osf-io.jpg" height=500px> </a></p>
+</div>
+</section>
+<section id="ethics" class="slide level2">
+<h1>Ethics</h1>
+<ul>
+<li>Restricted access</li>
+<li>Permission to share</li>
+<li>This workshop (Thu 9:15 am)</li>
+<li><a href="http://gilmore-lab.github.io/sips-2017-07-30/">Gilmore &amp; Nilsonne talk @ SIPS 2017</a></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<div class="centered">
+<p><a href="http://databrary.org"> <img src="img/databrary-splash.jpg"> </a></p>
+</div>
+</section>
+<section id="building-a-databservatory" class="slide level2">
+<h1>Building a Databservatory</h1>
+<ul>
+<li>Link data across studies, measures</li>
+<li>Link across group characteristics, individuals</li>
+<li>Enable searching &amp; filtering by individual characteristics, tasks</li>
+<li>Support web-based data analysis, visualization; open API</li>
+<li>Implement a consistent framework for ethical data sharing</li>
+<li>Enable data aggregation, cloning, provenance tracking</li>
+<li>Support self/active curation</li>
+<li>Link to publications</li>
+<li>…</li>
+</ul>
+</section>
+<section id="stack" class="slide level2">
+<h1>Stack</h1>
+<p>This talk was produced on 2017-07-24 in <a href="http://rstudio.com">RStudio 1.0.143</a> using R Markdown and the reveal.JS framework. The code and materials used to generate the slides may be found at <a href="https://github.com/gilmore-lab/aera-workshop-2017-07-26/" class="uri">https://github.com/gilmore-lab/aera-workshop-2017-07-26/</a>. Information about the R Session that produced the code is as follows:</p>
+</section>
+<section class="slide level2">
+
+<pre><code>## R version 3.4.0 (2017-04-21)
+## Platform: x86_64-apple-darwin15.6.0 (64-bit)
+## Running under: macOS Sierra 10.12.5
+## 
+## Matrix products: default
+## BLAS: /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/3.4/Resources/lib/libRlapack.dylib
+## 
+## locale:
+## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## loaded via a namespace (and not attached):
+##  [1] compiler_3.4.0  backports_1.0.5 magrittr_1.5    rprojroot_1.2  
+##  [5] htmltools_0.3.6 tools_3.4.0     revealjs_0.9    yaml_2.1.14    
+##  [9] Rcpp_0.12.10    stringi_1.1.5   rmarkdown_1.5   knitr_1.16.4   
+## [13] stringr_1.2.0   digest_0.6.12   evaluate_0.10</code></pre>
+</section>
+    </div>
+  </div>
+
+  <script src="libs/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
+  <script src="libs/reveal.js-3.3.0.1/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display the page number of the current slide
+        slideNumber: true,
+        // Push each slide change to the browser history
+        history: true,
+        // Vertical centering of slides
+        center: false,
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+        // Transition style
+        transition: 'none', // none/fade/slide/convex/concave/zoom
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+
+
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'libs/reveal.js-3.3.0.1/plugin/notes/notes.js', async: true },
+          { src: 'libs/reveal.js-3.3.0.1/plugin/zoom-js/zoom.js', async: true },
+        ]
+      });
+    </script>
+  <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+
+<script>
+  (function() {
+    if (window.jQuery) {
+      Reveal.addEventListener( 'slidechanged', function(event) {  
+        window.jQuery(event.previousSlide).trigger('hidden');
+        window.jQuery(event.currentSlide).trigger('shown');
+      });
+    }
+  })();
+</script>
+
+
+  </body>
+</html>
