@@ -1,5 +1,5 @@
 ---
-title: "Fixing the past vs. building the future"
+title: "Yes, we can!"
 author: "Rick O. Gilmore"
 date: "`r Sys.time()`"
 output:
@@ -13,7 +13,7 @@ output:
     reveal_options:
       slideNumber: true
       previewLinks: false
-      center: false
+      center: true
 ---
 
 ```{r setup, include=FALSE}
@@ -29,7 +29,7 @@ knitr::opts_chunk$set(echo = FALSE)
 Thank you to the National Science Foundation and the National Institute of Child Health and Human Development for their support of my work.
 </div>
 
-## Is there a reproducibility crisis?
+<!-- ## Is there a reproducibility crisis? -->
 
 <!-- - Yes, a significant crisis. -->
 <!-- - Yes, a slight crisis. -->
@@ -40,33 +40,33 @@ Thank you to the National Science Foundation and the National Institute of Child
 <!-- Could I see a show of hands from those who say there is a significant reproducibility crisis? A 'slight' crisis? No crisis? Don't know. -->
 <!-- </div> -->
 
----
+<!-- --- -->
 
-<div class="centered">
-<a href="http://www.nature.com/polopoly_fs/7.36716.1469695923!/image/reproducibility-graphic-online1.jpeg_gen/derivatives/landscape_630/reproducibility-graphic-online1.jpeg" height=450px>
-<img src="http://www.nature.com/polopoly_fs/7.36716.1469695923!/image/reproducibility-graphic-online1.jpeg_gen/derivatives/landscape_630/reproducibility-graphic-online1.jpeg" height=550px>
-</a>
+<!-- <div class="centered"> -->
+<!-- <a href="http://www.nature.com/polopoly_fs/7.36716.1469695923!/image/reproducibility-graphic-online1.jpeg_gen/derivatives/landscape_630/reproducibility-graphic-online1.jpeg" height=450px> -->
+<!-- <img src="http://www.nature.com/polopoly_fs/7.36716.1469695923!/image/reproducibility-graphic-online1.jpeg_gen/derivatives/landscape_630/reproducibility-graphic-online1.jpeg" height=550px> -->
+<!-- </a> -->
 
-[Baker 2016](http://doi.org/10.1038/533452a)
-</div>
+<!-- [Baker 2016](http://doi.org/10.1038/533452a) -->
+<!-- </div> -->
 
-<div class="notes">
-Here are the results from a survey published last year in Nature.
-</div>
+<!-- <div class="notes"> -->
+<!-- Here are the results from a survey published last year in Nature. -->
+<!-- </div> -->
 
----
+<!-- --- -->
 
-<div class="centered">
-<a href="http://www.nature.com/polopoly_fs/7.36719.1464174488!/image/reproducibility-graphic-online4.jpg_gen/derivatives/landscape_630/reproducibility-graphic-online4.jpg">
-<img src="http://www.nature.com/polopoly_fs/7.36719.1464174488!/image/reproducibility-graphic-online4.jpg_gen/derivatives/landscape_630/reproducibility-graphic-online4.jpg" height=600px>
-</a>
+<!-- <div class="centered"> -->
+<!-- <a href="http://www.nature.com/polopoly_fs/7.36719.1464174488!/image/reproducibility-graphic-online4.jpg_gen/derivatives/landscape_630/reproducibility-graphic-online4.jpg"> -->
+<!-- <img src="http://www.nature.com/polopoly_fs/7.36719.1464174488!/image/reproducibility-graphic-online4.jpg_gen/derivatives/landscape_630/reproducibility-graphic-online4.jpg" height=600px> -->
+<!-- </a> -->
 
-[Baker 2016](http://doi.org/10.1038/533452a)
-</div>
+<!-- [Baker 2016](http://doi.org/10.1038/533452a) -->
+<!-- </div> -->
 
-<div class="notes">
-Here are the data from the Nature survey.
-</div>
+<!-- <div class="notes"> -->
+<!-- Here are the data from the Nature survey. -->
+<!-- </div> -->
 
 <!-- ## Solvable problems -->
 
@@ -95,7 +95,7 @@ Here are the data from the Nature survey.
 </div>
 
 <div class="notes">
-Personally, I'm very grateful for these data because it makes me realize I can and should give up any lingering envy of the physical sciences.
+How many of you have physics envy?
 </div>
 
 ## Behavioral science is harder than physics
@@ -124,10 +124,16 @@ Physicists are rightly proud that they can predict precisely what will happen if
 But if we change the mass to a mouse, what happens?
 Our predictions go out the window. Why?
 Because there are too many variables...
-Psychology is orders of magnitude harder than physics.
+Behavioral science is orders of magnitude harder than physics.
 </div>
 
-## The past...
+## What's more important (to the future)?
+
+### Our findings
+
+### Our data
+
+---
 
 <div class="centered">
 <img src="http://www.cropthornehouse.co.uk/09-01-15_brick_rescue/08.jpg" height=500px>
@@ -137,7 +143,7 @@ Psychology is orders of magnitude harder than physics.
 If we think about every finding or data point as a brick, then we don't want unorganized piles
 </div>
 
-## The future...
+---
 
 <div class="centered">
 <img src="https://img.haikudeck.com/mg/wCGTyyYmpb_1417569004730.jpg" height=500px>
@@ -149,12 +155,142 @@ We want orderly, strong, structures of knowledge. That means we need to have sta
 
 ---
 
+### Journals +
+### Repositories = 
+### Structures of knowledge
+
+---
+
+- Journals
+    - Public face(s)
+    - Peer review
+    - Thematic foci
+    - Consistent formatting, standards
+
+---
+
+- Repositories
+    - ~~Lab, departmental, institutional web sites.~~
+    - ~~Dropbox, Box, Google, etc.~~
+    - **Domain specific**, like journals
+    - Long-term preservation, persistent identifiers
+    - Foundation of future platforms for discovery
+    
+    
+## Who owns your data?
+
+>- ~~you~~
+>- your institution
+>- your sponsors (or the taxpayers)
+>- your participants
+>- responsible data stewardship
+
+---
+
+<div class="centered">
+<img src="img/databrary-splash.jpg" height=550px/>
+</div>
+    
+## Databrary
+
+- Founded in early 2014
+- Funded by NSF & NICHD
+- Specializes in storing, managing, sharing **video**
+- Policy framework for *restricted* sharing of identifiable research data with *participant permission*
+
+## Lessons learned
+
+### Identifiable data **can** be shared 
+### & most participants agree to sharing
+
+---
+
+<video width="720" height="450" controls>
+  <source src="https://www.databrary.org/video/example-video-1.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+
+https://www.databrary.org/video/example-video-1.mp4
+
+---
+
+### Consistent data management **during data collection** (active curation) makes sharing easy(er) afterward.
+
+---
+
+### Capturing metadata about people, settings, measures makes data sets searchable, filterable, & more easily reused.
+
+---
+
+<div class="centered">
+<img src="img/bricks-mortar.png" height=550px>
+</div>
+
+---
+
+<video width="720" height="450" controls>
+  <source src="mov/databrary-vol-8-incl-enr-rpt-high.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+
+---
+
+### Single hub for sharing displays, coding manuals
+
+### Sharing or linking to flat file data, analysis code
+
+---
+
+### Using video as data & documentation
+
+---
+
+<div class="centered">
+<a href="http://doi.org/10.1038/s41562-017-0128">
+<img src="img/gilmore-adolph-nat-hum-beh.jpg" height=550pix>
+</a>
+
+[Gilmore & Adolph 2017](http://doi.org/10.1038/s41562-017-0128)
+</div>
+
+---
+
+<div class="centered">
+<img src="img/play-wiki.jpg" height=500px>
+
+<https://dev1.ed-projects.nyu.edu/wikis/docuwiki/doku.php/landing>
+</div>
+
+---
+
+<div class="centered">
+<img src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1398031081i/17816647._UY400_SS400_.jpg" height=500px>
+</div>
+
+---
+
+<div class="centered">
+<a href="http://jupyter.org">
+<img src="img/jupyter.jpg" height=500px>
+</a>
+</div>
+
+---
+
+<div class="centered">
+<a href="http://osf.io">
+<img src="img/osf-io.jpg" height=500px>
+</a>
+</div>
+
+---
+
 <div class="centered">
 <img src="http://www.sowoll.com/images/5(3).jpg" height=475px>
 </div>
 
 <div class="notes">
-So, what are the barriers we must overcome?
+So, what other barriers we must overcome?
 </div>
 
 ---
@@ -183,75 +319,8 @@ And it often seems like we are the proverbial blind men examining the elephant.
 <img src="http://static.neatorama.com/images/2012-09/girl-hugging-elephant.jpg" height=500px>
 </div>
 
-## Standardization
 
-- Data repositories
-    - ~~Lab, departmental, institutional web sites.~~
-    - ~~Dropbox, Box, Google, etc.~~
-    - **Domain specific**, like journals
-- In partnership with journals
-    - Consistent formatting
-    - Peer review
-    - Public-facing
-    
-## Metadata as mortar
-
-<div class="centered">
-<img src="img/bricks-mortar.png" height=550px>
-</div>
-
-<div class="notes">
-And on a more mundane level, we could choose and adopt common metadata items and formats that would allow us to link findings across studies. But we haven't yet.
-</div>
-
-## Capturing methods
-
-<div class="centered">
-<a href="http://doi.org/10.1038/s41562-017-0128">
-<img src="img/gilmore-adolph-nat-hum-beh.jpg" height=450px>
-</a>
-
-[Gilmore & Adolph 2017](http://doi.org/10.1038/s41562-017-0128)
-</div>
-
----
-
-<div class="centered">
-<img src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1398031081i/17816647._UY400_SS400_.jpg" height=500px>
-</div>
-
----
-
-<div class="centered">
-<a href="http://jupyter.org">
-<img src="img/jupyter.jpg" height=500px>
-</a>
-</div>
-
----
-
-<div class="centered">
-<a href="http://osf.io">
-<img src="img/osf-io.jpg" height=500px>
-</a>
-</div>
-
-## Ethics
-
-- Restricted access
-- Permission to share
-- This workshop (Thu 9:15 am)
-- [Gilmore & Nilsonne talk @ SIPS 2017](http://gilmore-lab.github.io/sips-2017-07-30/)
-
----
-
-<div class="centered">
-<a href="http://databrary.org">
-<img src="img/databrary-splash.jpg">
-</a>
-</div>
-
-## Building a Databservatory
+## My field of dreams...
 
 - Link data across studies, measures
 - Link across group characteristics, individuals
@@ -261,11 +330,21 @@ And on a more mundane level, we could choose and adopt common metadata items and
 - Enable data aggregation, cloning, provenance tracking
 - Support self/active curation
 - Link to publications
-- ...
+
+---
+
+### What's yours?
+
+---
+
+<div class="centered">
+<img src="http://www.bobleesays.com/wp-content/uploads/2015/06/FMD-Field-of-Dreams.jpg" height=500px>
+</div>
+
 
 ## Stack
 
-This talk was produced on `r Sys.Date()` in [RStudio 1.0.143](http://rstudio.com) using R Markdown and the reveal.JS framework.
+This talk was produced on `r Sys.time()` in [RStudio 1.0.143](http://rstudio.com) using R Markdown and the reveal.JS framework.
 The code and materials used to generate the slides may be found at <https://github.com/gilmore-lab/aera-workshop-2017-07-26/>. 
 Information about the R Session that produced the code is as follows:
 
