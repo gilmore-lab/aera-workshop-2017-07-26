@@ -104,6 +104,13 @@ Here are the data from the Nature survey.
 How many of you have physics envy?
 </div>
 
+---
+
+<div class="centered">
+<img src="img/ferguson-everybody-knows.jpg" width=900px>
+
+[Ferguson 2015](http://doi.org/10.1037/a0039405)
+</div>
 
 ## Behavioral science is harder than physics
 
@@ -259,9 +266,7 @@ https://www.databrary.org/video/example-video-1.mp4
 Your browser does not support the video tag.
 </video>
 
----
-
-### Video as data & documentation
+## Video as data & documentation
 
 ---
 
